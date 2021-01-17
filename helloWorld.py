@@ -18,17 +18,17 @@ def main(win):
             count += 1
 
         if current != ANS[:len(current)]:
-            win.addstr(0,0,current[:-1],curses.color_pair(2))
-            win.addstr(0,len(current)-1,current[-1:],curses.color_pair(1))
+            win.addstr(0,1,current[:-1],curses.color_pair(2))
+            win.addstr(0,len(current),current[-1:],curses.color_pair(1))
             current = current[:-1]
         else:
-            win.addstr(0,0,current,curses.color_pair(2))
+            win.addstr(0,1,current,curses.color_pair(2))
             count = 0
         if current == ANS:
             break 
         win.refresh()
         # win.getkey()
-        time.sleep(0.1)
+        time.sleep(0.02)
     win.getkey()
 
 curses.wrapper(main)
